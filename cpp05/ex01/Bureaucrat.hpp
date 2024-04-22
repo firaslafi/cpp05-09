@@ -6,22 +6,24 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 02:31:24 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/21 15:14:50 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/22 12:54:47 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "./Form.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-# include <iostream>
+#include <iostream>
 # include <exception>
+#include <string>
 
 using std::cout;
 using std::endl;
 using std::ostream;
 using std::string;
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+# include "./Form.hpp"
+class Form;
 
 class Bureaucrat
 {

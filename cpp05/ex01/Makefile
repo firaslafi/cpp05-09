@@ -6,7 +6,7 @@
 #    By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/13 02:31:28 by flafi             #+#    #+#              #
-#    Updated: 2024/04/15 04:24:18 by flafi            ###   ########.fr        #
+#    Updated: 2024/04/22 12:35:11 by flafi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ WHITE = \033[0;97m
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = ./main.cpp ./Bureaucrat.cpp
+SRCS = ./main.cpp ./Bureaucrat.cpp ./Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = program
 

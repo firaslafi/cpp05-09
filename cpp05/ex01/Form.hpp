@@ -6,18 +6,16 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:42:12 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/21 15:12:01 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/22 13:00:18 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "./Bureaucrat.hpp"
-#include <exception>
-#include <iostream>
-
-using std::string;
 
 #ifndef FORM_HPP
 # define FORM_HPP
+
+# include "./Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
@@ -32,7 +30,7 @@ class Form
 	~Form(void);
 
 	// desired constructor
-	Form(void);
+	Form(const string &name, int gradeToSign, int gradeToExcute);
 
     // copy assign and copy operator
 	Form(const Form &source);
@@ -41,7 +39,7 @@ class Form
     string getName() const;
     bool getSigned() const;
     int getGradeToSign() const;
-    int getGradeToExcute() const;
+    int getGradeToExecute() const;
 
     void beSigned(const Bureaucrat& bureaucratObj);
     

@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 02:31:25 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/21 15:19:14 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/22 13:24:52 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void Bureaucrat::signForm(Form& form)
     try
     {
         form.beSigned(*this);
-        cout << *this << " signed " << form.getName() << endl;
+        cout << this->getName() << " signed " << form.getName() << endl;
     }
     catch(const std::exception& e)
     {
