@@ -6,14 +6,14 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:32:18 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/23 15:58:46 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/24 14:58:07 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTALPARDONFORM
 #define PRESIDENTALPARDONFORM
 
-# include "./Aform.hpp"
+# include "./AForm.hpp"
 
 class PresidentialPardonForm: public Form
 {

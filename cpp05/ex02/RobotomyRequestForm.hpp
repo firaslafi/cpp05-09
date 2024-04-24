@@ -6,14 +6,14 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:32:23 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/23 15:57:24 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/24 14:46:20 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM
 #define ROBOTOMYREQUESTFORM
 
-# include "./Aform.hpp"
+# include "./AForm.hpp"
 
 class RobotomyRequestForm: public Form
 {

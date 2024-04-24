@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 02:31:25 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/23 16:57:30 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/24 14:54:14 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ void Bureaucrat::executeForm(const Form &form) const
 	try
 	{
 		form.execute(*this);
-        cout << form.getName() << " executed" << endl;
+        cout << this->getName() << " executed " << form.getName() << endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 // overriding the << operator for the outputstream
