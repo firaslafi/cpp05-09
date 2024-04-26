@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 02:31:26 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/26 16:15:21 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/26 16:21:08 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int main(void)
     catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << endl;
     }
+        system("leaks program");
     return (0);
 }
