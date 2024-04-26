@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:32:14 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/24 15:00:58 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/26 15:40:57 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void    PresidentialPardonForm::execute(Bureaucrat const & executor) const
 std::ostream &operator<<(std::ostream &outpudstream, PresidentialPardonForm const &obj)
 {
     outpudstream << "PresidentialPardonForm under the name of " << obj.getName() << endl;
+    return (outpudstream);
 }

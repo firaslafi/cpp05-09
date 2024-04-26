@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:32:26 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/24 14:42:12 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/26 15:42:10 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 std::ostream &operator<<(std::ostream &outpudstream, ShrubberyCreationForm const &obj)
 {
     outpudstream << "ShrubberyCreationForm under the name of " << obj.getName() << endl;
+    return (outpudstream);
 }

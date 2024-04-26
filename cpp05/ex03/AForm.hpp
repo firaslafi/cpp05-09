@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:42:12 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/23 16:27:08 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/26 16:14:38 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Form
 
   public:
 	Form(void);
-	~Form(void);
+	virtual ~Form(void);
 
 	// desired constructor
 	Form(const string &name, int gradeToSign, int gradeToExcute);

@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 02:31:26 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/24 15:03:04 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/26 16:15:21 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 # include "./ShrubberyCreationForm.hpp"
 # include "./RobotomyRequestForm.hpp"
 # include "./PresidentialPardonForm.hpp"
+# include "./Intern.hpp"
 
 int main(void)
 {
     try
     {
-        Bureaucrat ash("ash", 2);
+        // Bureaucrat ash("ash", 2);
 
-        RobotomyRequestForm myform("veryimportantform");
-        PresidentialPardonForm presform("presdiental form");
+        // RobotomyRequestForm myform("veryimportantform");
+        // PresidentialPardonForm presform("presdiental form");
         
-        ash.signForm(myform);
-        ash.executeForm(myform);
-        ash.signForm(presform);
-        ash.executeForm(presform);
+        // ash.signForm(myform);
+        // ash.executeForm(myform);
+        // ash.signForm(presform);
+        // ash.executeForm(presform);
+        
+        Intern someRandomIntern;
+        Form* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        delete rrf;
     }
     catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << endl;

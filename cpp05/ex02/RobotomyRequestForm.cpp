@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:32:20 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/24 14:47:51 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/26 15:42:14 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
 std::ostream &operator<<(std::ostream &outpudstream, RobotomyRequestForm const &obj)
 {
     outpudstream << "RobotomyRequestForm under the name of " << obj.getName() << endl;
+    return (outpudstream);
 }
