@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:02:41 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/27 14:10:52 by flafi            ###   ########.fr       */
+/*   Updated: 2024/04/27 14:41:04 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class ScalarConverter
     static void convertInt(const string &target);
     static void convertFloat(const string &target);
     static void convertDouble(const string &target);
-    
+    static bool isvalidInput(const string &target);
     public:
     ~ScalarConverter(void);
     
