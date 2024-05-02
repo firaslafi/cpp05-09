@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:02:41 by flafi             #+#    #+#             */
-/*   Updated: 2024/04/27 14:41:04 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/02 20:07:11 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <cfloat> // for numeric limits
 // for isprint
 #   include <cctype>
 using std::string;
