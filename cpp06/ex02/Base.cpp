@@ -6,20 +6,20 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:03:23 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/05 21:27:51 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/06 17:39:00 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A.hpp"
-#include "B.hpp"
+#include "./A.hpp"
+#include "./B.hpp"
 #include "./Base.hpp"
-#include "C.hpp"
+#include "./C.hpp"
 
 Base::~Base(void)
 {
 }
 
-Base*	Base::generate(void)
+Base *Base::generate(void)
 {
 	int	random;
 
@@ -47,43 +47,32 @@ if the pointer is pointing to the correct object,
 if the pointer is not pointing to the correct object,
 	the dynamic_cast operator returns a nullptr aka false
 yup, as simple as that*/
-void	Base::identify(Base *p)
+void Base::identify(Base *p)
 {
 	if (dynamic_cast<A *>(p))
-		cout << "A" << endl;
+		cout << "A detected" << endl;
 	else if (dynamic_cast<B *>(p))
-		cout << "B" << endl;
+		cout << "B detected" << endl;
 	else if (dynamic_cast<C *>(p))
-		cout << "C" << endl;
+		cout << "C detected" << endl;
 }
 
-void	Base::identify(Base &p)
+void Base::identify(Base &p)
 {
-	try
+	if (A *a = dynamic_cast<A *>(&p))
 	{
-		A &a = dynamic_cast<A &>(p);
-		cout << "A" << endl;
+		cout << "A detected" << endl;
 	}
-	catch (const std::exception &e)
+	else if (B *b = dynamic_cast<B *>(&p))
 	{
-		std::cerr << e.what() << '\n';
+		cout << "B detected" << endl;
 	}
-	try
+	else if (C *c = dynamic_cast<C *>(&p))
 	{
-		B &b = dynamic_cast<B &>(p);
-		cout << "B" << endl;
+		cout << "C detected" << endl;
 	}
-	catch (const std::exception &e)
+	else
 	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		C &c = dynamic_cast<C &>(p);
-		cout << "C" << endl;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << '\n';
+		cout << "Unknown type" << endl;
 	}
 }
