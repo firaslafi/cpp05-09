@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:02:38 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/04 19:10:39 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/13 22:52:42 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &source)
 }
 
 bool isChar(const std::string &s) {
-    return (s.length() == 1 && isascii(s[0]));
+    return (s.length() == 1 && isalpha(s[0]));
 }
 bool isInteger(const std::string &s) {
     if (s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false;
@@ -76,6 +76,7 @@ bool isDouble(const std::string &s) {
 }
 void ScalarConverter::convert(const string target)
 {
+	// convertFloat(target);
     if (isChar(target))
     {
         convertChar(target);
@@ -92,10 +93,18 @@ void ScalarConverter::convert(const string target)
     {
         convertDouble(target);
     }
-    else
-    {
-        cout << "Invalid input" << endl;
-    }
+    else if (isnan(std::stod(target)) || isinf(std::stod(target)))
+	{
+		cout << "char: impossible" << endl;
+		cout << "int: impossible" << endl;
+		cout << "float: " << target << "f" << endl;
+		cout << "double: " << target << endl;
+	}
+	else
+	{
+		cout << "Invalid input" << endl;
+	}
+
 }
 // this function is under construction need to be implemented
 bool ScalarConverter::isvalidInput(const string &target)
@@ -158,11 +167,6 @@ void ScalarConverter::convertFloat(const string &target)
 	{
 		floatFormat = std::stof(target);
 	}
-	catch (const std::invalid_argument &)
-	{
-		std::cerr << "Invalid input: " << target << std::endl;
-		return ;
-	}
 	catch (const std::out_of_range &)
 	{
 		std::cerr << "Input out of range: " << target << std::endl;
@@ -177,19 +181,30 @@ void ScalarConverter::convertFloat(const string &target)
 	if (isinf(floatFormat) || isnan(floatFormat))
 	{
 		cout << "float: impossible" << endl;
-		cout << "double: " << doubleFormat << endl;
+		if (floatFormat == (int)floatFormat)
+			cout << "double: " << floatFormat << ".0" << endl;
+		else
+			cout << "double: " << floatFormat << endl;
 		return ;
 	}
 	if (floatFormat > FLT_MAX || floatFormat < FLT_MIN)
 	{
 		cout << "float: impossible" << endl;
-		cout << "double: " << doubleFormat << endl;
+		if (floatFormat == (int)floatFormat)
+			cout << "double: " << floatFormat << ".0" << endl;
+		else
+			cout << "double: " << floatFormat << endl;
 	}
 	else
 	{
-		cout << "float: " << floatFormat << "f" << endl;
-		doubleFormat = static_cast<double>(floatFormat);
-		cout << "double: " << doubleFormat << endl;
+		if(floatFormat == (int)floatFormat)
+			cout << "float: " << floatFormat << ".0f" << endl;
+		else
+			cout << "float: " << floatFormat << "f" << endl;
+		if (floatFormat == (int)floatFormat)
+			cout << "double: " << floatFormat << ".0" << endl;
+		else
+			cout << "double: " << floatFormat << endl;
 	}
 }
 
@@ -210,13 +225,11 @@ void ScalarConverter::convertDouble(const string &target)
 		}
 		else
 		{
-			cout << "float: "
-					<< "impossible" << endl;
+			cout << "float: "<< "impossible" << endl;
 		}
 		if (doubleFormat > DBL_MAX || doubleFormat < DBL_MIN)
 		{
-			cout << "double: "
-					<< "impossible" << endl;
+			cout << "double: "<< "impossible" << endl;
 		}
 		else
 		{
