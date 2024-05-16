@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.hpp                                          :+:      :+:    :+:   */
+/*   iter.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTER_HPP
-# define INTER_HPP
+#ifndef iter_HPP
+# define iter_HPP
 
 # include <iostream>
 
-template <typename Type> void inter(Type *array, size_t arr_len, void (*f)(Type &))
+template <typename Type> void iter(Type *array, size_t arr_len, void (*f)(Type &))
 {
 	size_t	i;
 
