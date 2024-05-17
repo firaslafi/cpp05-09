@@ -6,7 +6,22 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:59:05 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/14 16:59:06 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/17 23:19:13 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Span.hpp"
+
+// default constructor
+span::span(void) : _n(0)
+{
+    
+}
+
+span::span(unsigned int n) : _n(n)
+{
+}
+
+span::~span(void)
+{
+}
