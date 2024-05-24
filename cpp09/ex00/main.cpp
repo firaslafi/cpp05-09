@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:24:15 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/22 23:53:36 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/24 18:57:34 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
         return (1);
     }
     BitcoinExchange exchange(argv[1]);
+    exchange.printExchangeRate();
     // run here
-    std::cout << "Exchange rate for 2024-05-21: " << exchange["2024-05-21"] << std::endl;
     return (0);
 }
