@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:24:21 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/24 19:00:25 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/25 23:37:50 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,46 @@ int BitcoinExchange::checkDate(const std::string &date)
 
 	return 1;
 }
+void BitcoinExchange::getExchangeRate(const string &date, const double &amount)
+{
+	if (_database.find(date) == _database.end())
+	{
+		std::cerr << "Error: no data for date;;; " << date << endl;
+		// get lower date here
+		// continue here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		return ;
+	}
+	double exchangeRate = _database[date];
+	double amountValue = amount;
+	double result = amountValue * exchangeRate;
+	cout << result  << endl;
+}
+void BitcoinExchange::readDatabaseCSV(void)
+{
+	std::ifstream dataFile("data.csv");
+	if (!dataFile.is_open())
+	{
+		std::cerr << "Error: cannot open file " << std::endl;
+		return ;
+	}
+	std::string line;
+	std::getline(dataFile, line);
+	while (std::getline(dataFile, line))
+	{
+		size_t pos = line.find(',');
+		string date = line.substr(0, pos);
+		double amount = std::stod(line.substr(pos + 1));
+		_database.insert(std::pair<string, double>(date, amount));
+	}
+	dataFile.close();
+}
 void BitcoinExchange::readDataFile(const std::string &filename)
 {
 	size_t	pos;
 	double	amount;
 
+	readDatabaseCSV();
+	// printData();
 	std::ifstream dataFile(filename);
 	if (!dataFile.is_open())
 	{
@@ -85,13 +120,18 @@ void BitcoinExchange::readDataFile(const std::string &filename)
 			continue ;
 		}
 		// maybe sperate it
-		cout << date << " => " << amount << endl;
 		std::pair<std::string, double> exchangeRateEntry(date, amount);
 		_exchangeRate.insert(exchangeRateEntry);
+	// exit(0);
+		cout << date << " => " << amount << " = ";
+		getExchangeRate(date, amount);
 
 	}
 	dataFile.close();
 }
+
+
+
 BitcoinExchange::BitcoinExchange(void)
 {
 	// readDataFile("data.csv");

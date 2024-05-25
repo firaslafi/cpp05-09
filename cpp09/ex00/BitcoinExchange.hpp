@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:24:18 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/24 18:58:03 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/25 23:33:16 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class BitcoinExchange
 {
 private:
     map<string, double> _exchangeRate;
+    map<string, double> _database;
 public:
     BitcoinExchange(void);
     BitcoinExchange(string filename);
@@ -40,16 +41,18 @@ public:
     
     void readDataFile(const string &filename);
     int checkDate(const string &date);
+    void getExchangeRate(const string &date, const double &amount);
+    void readDatabaseCSV(void);
     
-    void printExchangeRate(void)
-    {
-        cout << "Map DATA:" << endl;
-        cout << "--------------------------------" << endl;
-        for (map<string, double>::iterator it = _exchangeRate.begin(); it != _exchangeRate.end(); it++)
-        {
-            std::cout << it->first << " " << it->second << std::endl;
-        }
-    }
+    // void printData(void)
+    // {
+    //     cout << "Map DATA:" << endl;
+    //     cout << "--------------------------------" << endl;
+    //     for (map<string, double>::iterator it = _database.begin(); it != _database.end(); it++)
+    //     {
+    //         std::cout << it->first << " " << it->second << std::endl;
+    //     }
+    // }
 };
 
 
