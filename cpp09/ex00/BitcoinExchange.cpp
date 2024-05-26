@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:24:21 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/25 23:37:50 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/26 19:05:43 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,32 @@ int BitcoinExchange::checkDate(const std::string &date)
 }
 void BitcoinExchange::getExchangeRate(const string &date, const double &amount)
 {
+	double exchangeRate;
+	double amountValue;
+	double result;
+	map<string, double>::iterator it;
+	
 	if (_database.find(date) == _database.end())
 	{
-		std::cerr << "Error: no data for date;;; " << date << endl;
+		// std::cerr << "Error:;;; " << date << endl;
+		it = _database.lower_bound(date);
+		// rit = _database.rbegin();
+
+		exchangeRate = it->second;
+		amountValue = amount;
+		result = amountValue * exchangeRate;
 		// get lower date here
 		// continue here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		return ;
+
+		// return ;
 	}
-	double exchangeRate = _database[date];
-	double amountValue = amount;
-	double result = amountValue * exchangeRate;
+	else
+	{
+		exchangeRate = _database[date];
+		amountValue = amount;
+		result = amountValue * exchangeRate;
+	}
+
 	cout << result  << endl;
 }
 void BitcoinExchange::readDatabaseCSV(void)
@@ -90,10 +106,9 @@ void BitcoinExchange::readDataFile(const std::string &filename)
 	}
 	std::string line;
 	std::getline(dataFile, line);
-	int i = 1; // testing purposes
+	
 	while (std::getline(dataFile, line))
 	{
-		// cout << i++ << endl;
 		pos = line.find('|');
 		if (pos == std::string::npos)
 		{
@@ -122,7 +137,14 @@ void BitcoinExchange::readDataFile(const std::string &filename)
 		// maybe sperate it
 		std::pair<std::string, double> exchangeRateEntry(date, amount);
 		_exchangeRate.insert(exchangeRateEntry);
-	// exit(0);
+		
+		map<string, double>::reverse_iterator rit;
+		rit = _database.rbegin();
+		if(date > rit->first)
+		{
+			std::cerr << "Error: date is too high" << endl;
+			continue ;
+		}
 		cout << date << " => " << amount << " = ";
 		getExchangeRate(date, amount);
 
