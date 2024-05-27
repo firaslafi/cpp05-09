@@ -6,7 +6,7 @@
 #    By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 23:11:38 by flafi             #+#    #+#              #
-#    Updated: 2024/05/26 19:12:34 by flafi            ###   ########.fr        #
+#    Updated: 2024/05/27 20:09:41 by flafi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ WHITE = \033[0;97m
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = ./main.cpp ./BitcoinExchange.cpp
+SRCS = ./main.cpp ./RPN.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = RPN
 
