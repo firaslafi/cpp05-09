@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:11:31 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/29 20:30:00 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/29 20:52:08 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ using std::vector;
 using std::cout;
 using std::endl;
 using std::cerr;
+using std::string;
 
 class PmergeMe
 {
     private:
     public:
         vector<int> arr;
-        PmergeMe();
+        PmergeMe(int argc, char* argv[]);
         ~PmergeMe();
         PmergeMe(const PmergeMe &source);
         PmergeMe &operator=(const PmergeMe &source);
