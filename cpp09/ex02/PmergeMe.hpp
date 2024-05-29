@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:11:31 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/29 20:52:08 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/29 22:09:49 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,21 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-
+#include <iomanip>
+#include <deque>
 using std::vector;
 using std::cout;
 using std::endl;
 using std::cerr;
 using std::string;
+using std::deque;
 
 class PmergeMe
 {
     private:
     public:
         vector<int> arr;
+        deque<int> arrdeque;
         PmergeMe(int argc, char* argv[]);
         ~PmergeMe();
         PmergeMe(const PmergeMe &source);
@@ -50,5 +53,12 @@ class PmergeMe
         void FJSortRecursive(vector<int>& arr, int left, int right);
         void merge(vector<int>& arr, int left, int mid, int right);
         void insertionSort(vector<int>& arr, int left, int right);
+        void printVectorFormat(vector<int> &vec);
+
+        void FJSortdeque(deque<int>& arr);
+        void FJSortRecursivedeque(deque<int>& arr, int left, int right);
+        void mergedeque(deque<int>& arr, int left, int mid, int right);
+        void insertionSortdeque(deque<int>& arr, int left, int right);
+        void printFormatdeque(deque<int> &vec);
 }; 
 #endif
