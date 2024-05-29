@@ -6,7 +6,7 @@
 /*   By: flafi <flafi@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:24:21 by flafi             #+#    #+#             */
-/*   Updated: 2024/05/26 19:05:43 by flafi            ###   ########.fr       */
+/*   Updated: 2024/05/29 22:39:50 by flafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,11 @@ void BitcoinExchange::readDataFile(const std::string &filename)
 		return ;
 	}
 	std::string line;
+	if (dataFile.peek() == std::ifstream::traits_type::eof())
+	{
+		std::cerr << "Error: file is empty" << std::endl;
+		return ;
+	}
 	std::getline(dataFile, line);
 	
 	while (std::getline(dataFile, line))
@@ -145,7 +150,7 @@ void BitcoinExchange::readDataFile(const std::string &filename)
 			std::cerr << "Error: date is too high" << endl;
 			continue ;
 		}
-		cout << date << " => " << amount << " = ";
+		cout << date << " => " << std::fixed << std::setprecision(3) << amount << " = ";
 		getExchangeRate(date, amount);
 
 	}
